@@ -5,10 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webpack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <main class="main">
-      <h1 style="color: white">Countdown</h1>
-    </main>
+    <div class="wrapper">
+      <div class="counter-container">
+        <div class="card">
+          <h2 id="days" class="number">00</h2>
+          <p class="word">Días</p>
+        </div>
+        <div class="card">
+          <h2 id="hours" class="number">00</h2>
+          <p class="word">Horas</p>
+        </div>
+        <div class="card">
+          <h2 id="minutes" class="number">00</h2>
+          <p class="word">Minutos</p>
+        </div>
+        <div class="card">
+          <h2 id="seconds" class="number">00</h2>
+          <p class="word">Segundos</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
