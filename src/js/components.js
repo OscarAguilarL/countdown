@@ -1,10 +1,11 @@
+import Swal from 'sweetalert2';
 const d = document;
 
 const countdown = (limitDate, daysId, hoursId, minutesId, secondsId) => {
-  const $days = document.getElementById(daysId),
-    $hours = document.getElementById(hoursId),
-    $minutes = document.getElementById(minutesId),
-    $seconds = document.getElementById(secondsId),
+  const $days = document.querySelector(`#${daysId}`),
+    $hours = document.querySelector(`#${hoursId}`),
+    $minutes = document.querySelector(`#${minutesId}`),
+    $seconds = document.querySelector(`#${secondsId}`),
     countDate = new Date(limitDate).getTime();
 
   let countdownTempo = setInterval(() => {
@@ -30,7 +31,7 @@ const countdown = (limitDate, daysId, hoursId, minutesId, secondsId) => {
       $hours.innerText = '00';
       $minutes.innerText = '00';
       $seconds.innerText = '00';
-      alert('Ha terminado la cuenta atrás');
+      Swal.fire('', 'Ha terminado la cuenta atrás', 'success');
     }
   }, 1000);
 };
