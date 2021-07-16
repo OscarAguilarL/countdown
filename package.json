@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "countdown",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Component de cuenta regresiva con JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
