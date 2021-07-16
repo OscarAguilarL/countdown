@@ -27,3 +27,29 @@ body {
   margin: 0 auto;
   block-size: 80%;
 }
+
+.counter-container {
+  block-size: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.number {
+  font: var(--number);
+  background-color: var(--background);
+  inline-size: 11.375rem;
+  block-size: 13.375rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.word {
+  font: var(--name);
+  text-align: center;
+}

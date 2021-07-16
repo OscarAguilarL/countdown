@@ -1,31 +1,38 @@
-import '../css/components.css';
+const d = document;
 
-const $app = document.querySelector('#app');
+const countdown = (limitDate, daysId, hoursId, minutesId, secondsId) => {
+  const $days = document.getElementById(daysId),
+    $hours = document.getElementById(hoursId),
+    $minutes = document.getElementById(minutesId),
+    $seconds = document.getElementById(secondsId),
+    countDate = new Date(limitDate).getTime();
 
-export const counter = () => {
-  const counterHtml = `
-    <div class="counter-container">
-      <div class="card">
-        <h2 id="days" class="number">00</h2>
-        <p class="word">Días</p>
-      </div>
-      <div class="card">
-        <h2 id="hours" class="number">00</h2>
-        <p class="word">Horas</p>
-      </div>
-      <div class="card">
-        <h2 id="minutes" class="number">00</h2>
-        <p class="word">Minutos</p>
-      </div>
-      <div class="card">
-        <h2 id="seconds" class="number">00</h2>
-        <p class="word">Segundos</p>
-      </div>
-    </div>
-  `;
+  let countdownTempo = setInterval(() => {
+    let currentTime = new Date().getTime(),
+      limitTime = countDate - currentTime,
+      days = ('0' + Math.floor(limitTime / (1000 * 60 * 60 * 24))).slice(-2),
+      hours = (
+        '0' + Math.floor((limitTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      ).slice(-2),
+      minutes = (
+        '0' + Math.floor((limitTime % (1000 * 60 * 60)) / (1000 * 60))
+      ).slice(-2),
+      seconds = ('0' + Math.floor((limitTime % (1000 * 60)) / 1000)).slice(-2);
 
-  const div = document.createElement('div');
-  div.innerHTML = counterHtml;
-  $app.append(div.firstElementChild);
-  return div.firstElementChild;
+    $days.innerText = days;
+    $hours.innerText = hours;
+    $minutes.innerText = minutes;
+    $seconds.innerText = seconds;
+
+    if (limitTime < 0) {
+      clearInterval(countdownTempo);
+      $days.innerText = '00';
+      $hours.innerText = '00';
+      $minutes.innerText = '00';
+      $seconds.innerText = '00';
+      alert('Ha terminado la cuenta atrás');
+    }
+  }, 1000);
 };
+
+export default countdown;
